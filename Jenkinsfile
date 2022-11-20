@@ -28,11 +28,11 @@ pipeline{
             steps {
                 echo ' publishing...'
                 nexusArtifactUploader artifacts: [[artifactId: 'devopslesson',
-                classifier: '', file: 'target/devopslesson-0.1.9-SNAPSHOT.war',
-                type: 'war']], credentialsId: '8987bc36-3605-4f47-b09f-4b5a8175906c',
-                groupId: 'com.DevopsLesson', nexusUrl: '172.20.10.157:8081',
-                nexusVersion: 'nexus3', protocol: 'http', repository: 'DevopsLesson-SNAPSHOT',
-                version: '0.1.9-SNAPSHOT'
+                 classifier: '', file: 'target/devopslesson-0.1.9-SNAPSHOT.war',
+                  type: 'war']], credentialsId: '35c40cc9-2331-4b74-8067-e1ccc7852979',
+                   groupId: 'com.DevopsLesson', nexusUrl: '172.20.10.157:8081',
+                    nexusVersion: 'nexus3', protocol: 'http', repository: 'DevopsLesson-SNAPSHOT',
+                     version: '0.1.9-SNAPSHOT'
             }
         }
 
