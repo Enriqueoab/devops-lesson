@@ -4,6 +4,14 @@ pipeline{
     tools {
         maven 'maven'
     }
+    //Create variables to store values of our pom.xml
+    environment{
+        ArtifactId = readMavenPom().getArtifactId()
+        Version = readMavenPom().getVersion()
+        Name = readMavenPom().getName()
+        GroupId = readMavenPom().getGroupId()
+        NexusUrl = '172.20.10.157:8081'
+    }
 
     stages {
         // Specify various stage with in stages
@@ -27,12 +35,12 @@ pipeline{
         stage ('Publishing to Nexus'){
             steps {
                 echo ' publishing...'
-                nexusArtifactUploader artifacts: [[artifactId: 'devopslesson',
-                 classifier: '', file: 'target/devopslesson-0.1.9-SNAPSHOT.war',
+                nexusArtifactUploader artifacts: [[artifactId: '${ArtifactId}',
+                 classifier: '', file: 'target/${ArtifactId}-${Version}.war',
                   type: 'war']], credentialsId: '35c40cc9-2331-4b74-8067-e1ccc7852979',
-                   groupId: 'com.DevopsLesson', nexusUrl: '172.20.10.157:8081',
+                   groupId: '${GroupId}', nexusUrl: '${NexusUrl}',
                     nexusVersion: 'nexus3', protocol: 'http', repository: 'DevopsLesson-SNAPSHOT',
-                     version: '0.1.9-SNAPSHOT'
+                     version: '${Version}'
             }
         }
 
