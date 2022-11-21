@@ -35,12 +35,12 @@ pipeline{
         stage ('Publishing to Nexus'){
             steps {
                 echo ' publishing...'
-                nexusArtifactUploader artifacts: [[artifactId: '${ArtifactId}',
-                 classifier: '', file: 'target/${ArtifactId}-${Version}.war',
+                nexusArtifactUploader artifacts: [[artifactId: "${ArtifactId}",
+                 classifier: '', file: "target/"${ArtifactId}"-"${Version}".war",
                   type: 'war']], credentialsId: '35c40cc9-2331-4b74-8067-e1ccc7852979',
-                   groupId: '${GroupId}', nexusUrl: '${NexusUrl}',
+                   groupId: "${GroupId}", nexusUrl: "${NexusUrl}",
                     nexusVersion: 'nexus3', protocol: 'http', repository: 'DevopsLesson-SNAPSHOT',
-                     version: '${Version}'
+                     version: "${Version}"
             }
         }
 
