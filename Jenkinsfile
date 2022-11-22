@@ -52,7 +52,7 @@ pipeline{
                 nexusUrl: "${NexusUrl}",
                 nexusVersion: 'nexus3',
                 protocol: 'http',
-                repository: 'DevopsLesson-SNAPSHOT',
+                repository: "${NexusRepo}",
                 version: "${Version}"
             }
             }
