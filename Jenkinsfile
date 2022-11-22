@@ -38,14 +38,14 @@ pipeline{
                 script{
                 def NexusRepo = Version.endsWith("SNAPSHOT") ? "${BaseRepoName}-SNAPSHOT"  : "${BaseRepoName}-RELEASE"
 
-                def ArtifactFile = NexusRepo.endsWith("SNAPSHOT") ?
-                    "target/${ArtifactId}-${Version}-SNAPSHOT.war"  : "target/${ArtifactId}-${Version}.war"
+                // def ArtifactFile = NexusRepo.endsWith("SNAPSHOT") ?
+                //     "target/${ArtifactId}-${Version}-SNAPSHOT.war"  : "target/${ArtifactId}-${Version}.war"
 
                 echo ' publishing...'
                 nexusArtifactUploader artifacts:
                 [[artifactId: "${ArtifactId}",
                 classifier: '',
-                file: "${ArtifactFile}",
+                file: "target/${ArtifactId}-${Version}.war",
                 type: 'war']],
                 credentialsId: '35c40cc9-2331-4b74-8067-e1ccc7852979',
                 groupId: "${GroupId}",
