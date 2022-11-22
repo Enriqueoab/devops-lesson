@@ -36,7 +36,7 @@ pipeline{
         stage ('Publishing to Nexus'){
             steps {
                 script{
-                def NexusRepo = Version.endsWith("SNAPSHOT") ? "${BaseRepoName}-SNAPSHOT"  : "${BaseRepoName}-RELEASE"
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "${BaseRepoName}SNAPSHOT"  : "${BaseRepoName}RELEASE"
 
                 // def ArtifactFile = NexusRepo.endsWith("SNAPSHOT") ?
                 //     "target/${ArtifactId}-${Version}-SNAPSHOT.war"  : "target/${ArtifactId}-${Version}.war"
