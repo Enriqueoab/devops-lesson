@@ -11,6 +11,7 @@ pipeline{
         Name = readMavenPom().getName()
         GroupId = readMavenPom().getGroupId()
         NexusUrl = "172.20.10.157:8081"
+        BaseRepoName = "DevopsLesson-"
     }
 
     stages {
@@ -34,11 +35,17 @@ pipeline{
         // Stage3 : Deploying
         stage ('Publishing to Nexus'){
             steps {
+                script{
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "${BaseRepoName}-SNAPSHOT"  : "${BaseRepoName}-RELEASE"
+
+                def ArtifactFile = NexusRepo.endsWith("SNAPSHOT") ?
+                    "target/${ArtifactId}-${Version}-SNAPSHOT.war"  : "target/${ArtifactId}-${Version}.war"
+
                 echo ' publishing...'
                 nexusArtifactUploader artifacts:
                 [[artifactId: "${ArtifactId}",
                 classifier: '',
-                file: 'target/devopslesson-0.1.9-SNAPSHOT.war',
+                file: "${ArtifactFile}",
                 type: 'war']],
                 credentialsId: '35c40cc9-2331-4b74-8067-e1ccc7852979',
                 groupId: "${GroupId}",
@@ -47,6 +54,7 @@ pipeline{
                 protocol: 'http',
                 repository: 'DevopsLesson-SNAPSHOT',
                 version: "${Version}"
+            }
             }
         }
 
