@@ -32,7 +32,7 @@ pipeline{
             }
         }
 
-        // Stage3 : Deploying
+        // Stage3 : Publishing
         stage ('Publishing to Nexus'){
             steps {
                 script{
