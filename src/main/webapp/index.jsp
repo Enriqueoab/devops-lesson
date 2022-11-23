@@ -54,6 +54,7 @@
         <p>This is a DevOps AWS Lesson</p>
         <p><a class="btn btn-primary btn-lg" role="button">More great projects &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" role="button">See developer CV &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button">Latest &raquo;</a></p>
     </div>
 </div>
 
