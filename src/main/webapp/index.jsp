@@ -42,7 +42,6 @@
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-success">Sign in</button>
-                <button type="submit" class="btn btn-success">See CV</button>
             </form>
         </div><!--/.navbar-collapse -->
     </div>
@@ -54,7 +53,7 @@
         <h1>Hello</h1>
         <p>This is a DevOps AWS Lesson</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" role="button">Success!! more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button">See developer CV &raquo;</a></p>
     </div>
 </div>
 
