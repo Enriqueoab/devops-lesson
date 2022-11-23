@@ -4,7 +4,7 @@
   <groupId>com.DevopsLesson</groupId>
   <artifactId>devopslesson</artifactId>
   <packaging>war</packaging>
-  <version>0.2.0</version>
+  <version>0.2.3</version>
   <name>DevopsLesson</name>
   <url>http://maven.apache.org</url>
   <dependencies>
