@@ -52,7 +52,7 @@
     <div class="container">
         <h1>Hello</h1>
         <p>This is a DevOps AWS Lesson</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button">More great projects &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" role="button">See developer CV &raquo;</a></p>
     </div>
 </div>

@@ -24,7 +24,7 @@ pipeline{
             }
         }
 
-        // Stage2 : Testing
+        // Stage 2 : Testing
         stage ('Test'){
             steps {
                 echo ' testing......'
@@ -32,7 +32,7 @@ pipeline{
             }
         }
 
-        // Stage3 : Publishing
+        // Stage 3 : Publishing
         stage ('Publishing to Nexus'){
             steps {
                 script{
@@ -59,7 +59,7 @@ pipeline{
         }
 
         
-        // Stage4 : Deploying
+        // Stage 4 : Deploying the artifact to tomcat
         stage ('Deploy'){
             steps {
                 echo 'deploying...'
@@ -78,6 +78,25 @@ pipeline{
             }
         }
  
+        // Stage 5 : Deploying the artifact to Docker
+        stage ('Deploy to docker'){
+            steps {
+                echo 'deploying...'
+                sshPublisher(publishers:
+                 [sshPublisherDesc(
+                    configName: 'AnsibleController',
+                    transfers: [
+                        sshTransfer(
+                        cleanRemote: false, 
+                        execCommand: 'ansible-playbook /opt/playbooks/downloadAndDeploy_Docker.yml -i /opt/playbooks/hosts',
+                        execTimeout: 120000,
+                        )],
+                    usePromotionTimestamp: false,
+                    useWorkspaceInPromotion: false,
+                    verbose: false)])
+            }
+        }
+
         // // Stage3 : Publish the source code to Sonarqube
         // stage ('Sonarqube Analysis'){
         //     steps {
