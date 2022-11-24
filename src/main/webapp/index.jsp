@@ -50,11 +50,10 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Hello</h1>
-        <p>This is a DevOps AWS Lesson</p>
+        <h1>Hi, how are you?</h1>
+        <p>This is a DevOps AWS Lesson version 0.2.14</p>
         <p><a class="btn btn-primary btn-lg" role="button">More great projects &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" role="button">See developer CV &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" role="button">Latest &raquo;</a></p>
     </div>
 </div>
 
